@@ -5,6 +5,8 @@ import axios from 'axios'
 // link to path to other route
 import { Link } from 'react-router-dom';
 
+import PopUp from './PopUp';
+
 const Main = () => {
     const [authors, setAuthors] = useState([])
 
@@ -43,7 +45,8 @@ const Main = () => {
                                 <td>
                                     <Link className="btn" to={"/authors/" + author._id+"/edit"}>Edit</Link>
                                     &nbsp;
-                                    <button className="btn" onClick={()=>deleteAuthor(author._id)}>Delete</button>
+                                    <PopUp deleteAuthor={deleteAuthor} author={author}/>
+                                    {/* <button className="btn" onClick={()=>deleteAuthor(author._id)}>Delete</button> */}
                                 </td>
                             </tr>
                         )
