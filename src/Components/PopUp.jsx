@@ -1,3 +1,5 @@
+// PopUp component to handle delete confirm window pop up
+
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -7,21 +9,26 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 const PopUp = (props) => {
-
+    // default the window is close
     const [state, setState] = useState(false);
-
+    // switch window up when it clicks
     const handleClickOpen = () => setState(true);
+    // handle close once it cancels delete or confirm
     const handleClose = () => setState(false);
 
     const handleDelete = () => {
+        // use props to call the parent function
         props.deleteAuthor(props.author._id)
+        // close the window
         handleClose();
         // console.log("handleDelete");
     };
-    const handleCancel = () => {
-        handleClose();
-        // console.log("handleCancel");
-    };
+    // const handleCancel = () => {
+    //     handleClose();
+    //     // console.log("handleCancel");
+    // };
+
+    // check windows.confirm later
 
     return (
         <div>
@@ -36,7 +43,9 @@ const PopUp = (props) => {
                 <DialogContent>Are you sure you want to remove {props.author.name}?</DialogContent>
 
                 <DialogActions>
-                    <Button onClick={handleCancel} className="btn">Cancel</Button>
+                    {/* straight to close the window set it back to false */}
+                    <Button onClick={handleClose} className="btn">Cancel</Button>
+                    {/* confirm then we delete the target by call parent function */}
                     <Button onClick={handleDelete} className="btn">Delete</Button>
                 </DialogActions>
 

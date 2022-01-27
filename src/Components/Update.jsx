@@ -53,7 +53,7 @@ const Update = () => {
             }
             {
                 author.name === undefined
-                    ? <p></p>
+                    ? <p></p> // add the link to create
                     :
                     <form onSubmit={handleSubmit}>
                         <h3>Edit the Author</h3>
