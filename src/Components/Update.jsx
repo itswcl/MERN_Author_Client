@@ -21,7 +21,6 @@ const Update = () => {
                 setAuthor(res.data.author)
             })
             .catch(err => {
-                // console.log(err.response.data.error)
                 // console.log(err.response.data.error.message)
                 setInvalidMessage("We're sorry, but we could not find the author you are looking for. Would you like to add this author to our database?");
             })
