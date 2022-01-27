@@ -4,6 +4,7 @@ import Main from './Components/Main';
 import Create from './Components/Create';
 import Detail from './Components/Detail';
 import Update from './Components/Update';
+import PopUp from './Components/PopUp';
 
 function App() {
   return (
@@ -12,6 +13,11 @@ function App() {
       <Switch>
 
         {/* this is for update ONE author  */}
+        <Route path="/popup">
+          <h1>PopUp Testing</h1>
+          <PopUp/>
+        </Route>
+
         <Route exact path="/authors/:id/edit">
           <Update />
         </Route>
